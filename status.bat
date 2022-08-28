@@ -5,15 +5,15 @@ echo. >> status.txt
 echo. >> status.txt
 echo %date% >> status.txt
 
-set /p pythonFolder="Paste here the cupscale python folder then press enter:   "
+set /p cupscale_folder="Paste here the cupscale folder then press enter:   "
 
 echo. >> status.txt
-echo Using %pythonFolder%\python.exe >> status.txt
+echo Using %cupscale_folder%\CupscaleData\bin\py\python.exe >> status.txt
 echo. >> status.txt
 
 cls
-"%pythonFolder%\python.exe" -m pip list >> status.txt
-"%pythonFolder%\python.exe" status.py
+"%cupscale_folder%\CupscaleData\bin\py\python.exe" -m pip list >> status.txt
+"%cupscale_folder%\CupscaleData\bin\py\python.exe" status.py
 
 cls
 type status.txt
