@@ -1,7 +1,9 @@
 # Cupscale embedded python diagnostics and updater
 This could help find why cupscale doesn't work.
 
-Download it the assets
+Download it the assets or here :
+[cupscale_diagnostics_updater.zip](https://github.com/pierro42/Cupscale_diagnostics_updater/files/9440051/cupscale_diagnostics_updater.zip)
+
 
 ### DIAGNOSTICS :
 
