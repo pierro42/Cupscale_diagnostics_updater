@@ -26,7 +26,7 @@ Download it the assets
 
 4: go to https://pytorch.org/ and select the options to match the last version of cuda for pip windows like in picture below :
 
-#INSERT PICTURE#
+![example](https://github.com/pierro42/Cupscale_diagnostics_updater/blob/main/pytorch.png?raw=true)
 
 5: Copy the link at the end of the command and paste it in the app, then press enter
 
