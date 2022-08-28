@@ -1,7 +1,7 @@
 import torch
 from typing import List
 
-
+warning_message=""
 
 def get_device_number():
 
@@ -20,8 +20,7 @@ def get_device_capability():
 
 def is_available() -> bool:
     r"""Returns a bool indicating if CUDA is currently available."""
-    if (not hasattr(torch._C, '_cuda_isDriverSufficient') or
-            not torch._C._cuda_isDriverSufficient()):
+    if ( not torch.cuda.is_available() ):
         return False
     return torch._C._cuda_getDeviceCount() > 0
  
@@ -29,6 +28,7 @@ def is_available() -> bool:
 def get_arch_list() -> List[str]:
     r"""Returns list CUDA architecutres this library was compiled for."""
     if not is_available():
+        print("CUDA not available")
         return []
     arch_flags = torch._C._cuda_getArchFlags()
     if arch_flags is None:
@@ -47,8 +47,9 @@ if len(arch_list) == 0:
     print('No cuda ARCH ?')
 supported_sm = [int(arch.split('_')[1]) for arch in arch_list if 'sm_' in arch]
 
-cap_major, cap_minor = get_device_capability()
-capability = cap_major * 10 + cap_minor
+cap_version = get_device_capability()
+
+capability = cap_version[0] * 10 + cap_version[1]
 # NVIDIA GPU compute architectures are backward compatible within 5 minor revisions versions
 supported = any([capability >= sm and capability - (sm // 5) * 5 < 5 for sm in supported_sm])
 if not supported:
@@ -79,7 +80,10 @@ with open('status.txt', 'a') as f:
     device_capability=torch.cuda.get_device_capability(0)
     f.write(f'\nGPU Capability : {str(device_capability)}')
     
-    f.write(f'\n\n\n{warning_message}')
+    if warning_message != "":
+        f.write(f'\n\n\n{warning_message}')
+    else:
+        f.write("\n\n\n\nGPU Compability looks OK\n")
 
     f.write("________________________________________")
     f.write('\n\n\nEND OF SCRPIT')
