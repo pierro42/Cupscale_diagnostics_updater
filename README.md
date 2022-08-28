@@ -1,4 +1,4 @@
-# Cupscale_diagnostics
+# Cupscale embedded python diagnostics
 This could help find why cupscale doesn't work.
 
 1: Copy the cupscale exe path
