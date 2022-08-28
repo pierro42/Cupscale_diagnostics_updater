@@ -6,6 +6,6 @@ This could help find why cupscale doesn't work.
 
 2: start the status.bat file 
 
-3: paste the cupscale folder adress then press enter
+3: paste the cupscale folder path then press enter
 
 4: see what's going on
