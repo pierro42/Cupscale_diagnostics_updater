@@ -41,7 +41,6 @@ IF %option% EQU y (
     echo User wants to remove pytorch >> update.txt
 	"%cupscale_folder%\CupscaleData\bin\py\python.exe" -m pip uninstall torch torchvision torchaudio -y
 	echo %cupscale_folder%\CupscaleData\bin\py\python.exe" -m pip uninstall torch torchvision torchaudio -y >> update.txt
-
 )
 
 IF %option% EQU n (
